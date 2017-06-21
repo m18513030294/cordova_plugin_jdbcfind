@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.lzsf.jdbc" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>jdbcfind</name>
+    <js-module name="jdbcfind" src="www/jdbcfind.js">
+       <clobbers target="cordova.plugins.jdbcfind" />
+    </js-module>
+  <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+          <feature name="jdbcfind">
+            <param name="android-package" value="com.lzsf.jdbc.jdbcfind.jdbcfind" />
+          </feature>
+      </config-file>
+         <config-file parent="/*" target="AndroidManifest.xml">
+         <!-- 此处添加所需权限 --> 
+         <uses-permission android:name="android.permission.INTERNET"/>
+         <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+      </config-file>
+           <!--code包-->
+          <source-file src="src/android/code/jdbcfind.java" target-dir="src/com/lzsf/jdbc/jdbcfind" />
+          <!--<source-file src="src/android/code/MainActivity.java" target-dir="src/com/lzsf/jdbc/jdbcfind" />-->
+          <source-file src="src/android/code/JdbcUtils.java" target-dir="src/com/lzsf/jdbc/jdbcfind/utils" />
+          <source-file src="src/android/code/JdbcHelper.java" target-dir="src/com/lzsf/jdbc/jdbcfind/utils" />
+          <source-file src="src/android/code/CallProcedure.java" target-dir="src/com/lzsf/jdbc/jdbcfind/utils" />
+           <!--jar包-->
+          <source-file src="src/android/libs/ojdbc6.jar" target-dir="libs" />
+   </platform>
+</plugin>
